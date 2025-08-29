@@ -1,10 +1,13 @@
-const{test , expect } = require('@playwright/test')
 
+const { test, expect } = require('@playwright/test');
+const { Amazon_Search } = require('../Pages/Amazon_Search');
+
+    
 test.only("amazon test" ,async ({page})=>{ 
 
-    await page.goto("https://www.amazon.in/")
-
-    await page.locator("input#twotabsearchtextbox").fill("Laptop");
+    const searchPage = new Amazon_Search(page);
+    await page.goto("https://www.amazon.in/");
+    await searchPage.searchForProduct("Laptop");
 
 
     await page.waitForTimeout(4500);
@@ -30,6 +33,7 @@ test.only("amazon test" ,async ({page})=>{
 
     }
     await expect(page).toHaveTitle("Amazon.in : Laptop");
-    console.log("title verified");
+    console.log("title verified case");
+    console.log("Title verified successfully");
 
 });
