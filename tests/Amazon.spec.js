@@ -34,6 +34,8 @@ test.only("amazon test" ,async ({page})=>{
     }
     await expect(page).toHaveTitle("Amazon.in : Laptop");
     console.log("title verified case");
+
+    await page.screenshot({path:'screenshot/amazon.png'});
     
 
 });
