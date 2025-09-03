@@ -2,7 +2,7 @@
 const { test, expect } = require('@playwright/test');
 const { Amazon_Search } = require('../Pages/Amazon_Search');
 
-    
+
 test.only("amazon test" ,async ({page})=>{ 
 
     const searchPage = new Amazon_Search(page);
@@ -34,6 +34,6 @@ test.only("amazon test" ,async ({page})=>{
     }
     await expect(page).toHaveTitle("Amazon.in : Laptop");
     console.log("title verified case");
-    console.log("Title verified successfully");
+    
 
 });
