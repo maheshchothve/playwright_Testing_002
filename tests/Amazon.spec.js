@@ -20,13 +20,15 @@ test.only("amazon test" ,async ({page})=>{
 
     // Use a more robust selector for brand names
     const brands = await page.$$('#brandsRefinements ul span.a-list-item span.a-size-base');
+    const allTexts = await page.locator('#brandsRefinements ul span.a-list-item span.a-size-base').allTextContents();
+    console.log(allTexts);
     console.log("Brands found:", brands.length);
     for (const brand of brands) {
         const text = await brand.textContent();
         // if (text && text.trim().length > 0) {
         //     console.log(text.trim());
         // }
-        if(text==='Dell'){
+        if(text==='HP'){
             await brand.click();
             break;
         }
